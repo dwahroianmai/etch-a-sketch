@@ -17,7 +17,7 @@ h1 {
 
 p {
   color: rgb(69, 69, 69);
-  font-size: 22px;
+  font-size: 23px;
   padding: 0;
   margin: 0;
 }
@@ -29,19 +29,24 @@ p {
   justify-content: center;
   width: 100vw;
   height: 110px;
+  position: relative;
 }
 
 #colorpicker:hover {
   width: 83px;
   height: 83px;
+  
 }
 
 #colorpicker {
+  margin-right: 61%;
+  position: absolute;
   appearance: none;
   width: 80px;
   height: 80px;
   border: none;
   background-color: transparent;
+  transition: width 0.1s, height 0.1s;
 }
 
 #colorpicker::-webkit-color-swatch {
@@ -86,6 +91,8 @@ button {
 
 #size::-webkit-slider-thumb:hover {
   background: rgb(80, 80, 80);
+  width: 25px;
+  height: 25px;
 }
 
 #size::-webkit-slider-thumb:active {
@@ -98,13 +105,16 @@ button {
   height: 22px;
   background: rgb(80, 80, 80);
   border-radius: 50%;
+  transition: width 0.1s, height 0.1s;
 }
 
 #size::-moz-range-thumb {
+  appearance: none;
   width: 22px;
   height: 22px;
   background: rgb(69, 69, 69);
   border-radius: 50%;
+  transition: width 0.1s, height 0.1s;
 }
 
 .footer {
