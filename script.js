@@ -1,5 +1,6 @@
 const canvas = document.querySelector('#canvas');
 
+
 let side = 48;
 setCanvas();
 
@@ -23,9 +24,11 @@ function setCanvas() {
 
 function paint() {
   square.addEventListener('mouseover', (e) => {
-    e.target.setAttribute('style', `height: ${640/side}px; \
-    width: ${640/side}px; \
-    background-color: black`);
+    if (e.buttons === 1) {
+      e.target.setAttribute('style', `height: ${640/side}px; \
+      width: ${640/side}px; \
+      background-color: black`);
+    }
   });
 }
 
