@@ -3,6 +3,7 @@ const eraser = document.querySelector('#eraser');
 const clear = document.querySelector('#clear');
 const colorpicker = document.querySelector('#colorpicker');
 
+let square;
 let side = 48;
 setCanvas();
 
@@ -13,6 +14,15 @@ size.addEventListener('mouseup', (e) => {
 })
 
 clear.addEventListener('click', setCanvas);
+eraser.addEventListener('click', () => {
+  if (eraser.textContent === "Eraser: off") {
+    eraser.textContent = "Eraser: on";
+    paintOnOff()
+  } else {
+    eraser.textContent = "Eraser: off";
+    paintOnOff()
+  }
+})
 
 // functions below
 function setCanvas() {
@@ -23,16 +33,20 @@ function setCanvas() {
     width: ${640/side}px; \
     background-color: white;`)
     canvas.appendChild(square);
-    paint();
+    paintOnOff();
   }
 }
 
-function paint() {
+function paintOnOff() {
   square.addEventListener('mouseover', (e) => {
-    if (e.buttons === 1) {
+    if (e.buttons === 1 && eraser.textContent === "Eraser: off") {
       e.target.setAttribute('style', `height: ${640/side}px; \
       width: ${640/side}px; \
       background-color: ${colorpicker.value}`);
+    } else if (e.buttons === 1 && eraser.textContent === "Eraser: on") {
+      e.target.setAttribute('style', `height: ${640/side}px; \
+      width: ${640/side}px; \
+      background-color: white`);
     }
   });
 }
