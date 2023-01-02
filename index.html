@@ -13,9 +13,13 @@
     <h1>Etch-a-sketch</h1>
     <div id="buttons">
       <input id="colorpicker" type="color" value="#454545">
+      <button id="rainbow">Rainbow: off</button>
       <button id="eraser">Eraser: off</button>
       <button id="clear">Clear all</button>
-      <input id="size" type="range" min="16" max="80" step="2" value="48">
+      <div class="size">
+        <p>48x48</p>
+        <input id="size" type="range" min="16" max="80" step="2" value="48">
+      </div>
     </div>
     <div id="canvas">
     </div>
