@@ -1,5 +1,7 @@
 const canvas = document.querySelector('#canvas');
-
+const eraser = document.querySelector('#eraser');
+const clear = document.querySelector('#clear');
+const colorpicker = document.querySelector('#colorpicker');
 
 let side = 48;
 setCanvas();
@@ -10,6 +12,9 @@ size.addEventListener('mouseup', (e) => {
   setCanvas();
 })
 
+clear.addEventListener('click', setCanvas);
+
+// functions below
 function setCanvas() {
   removeChildren(canvas);
   for (let i = 0; i < (side ** 2); i++) {
@@ -27,7 +32,7 @@ function paint() {
     if (e.buttons === 1) {
       e.target.setAttribute('style', `height: ${640/side}px; \
       width: ${640/side}px; \
-      background-color: black`);
+      background-color: ${colorpicker.value}`);
     }
   });
 }
